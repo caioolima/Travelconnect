@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+ 
+  <title>Document</title>
+  
+  <link rel="stylesheet" href="../css/resets.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/left-side.css">
+  <link rel="stylesheet" href="../css/form.css">
+
+</head>
+<body>
+  <main>
+    <section class="face-infos">
+      <div class="container">
+        <h1>TravelConnect</h1>
+        <p>Conectando Viajantes e Compartilhando Experiências pelo Mundo.</p>
+      </div>
+    </section>
+
+    <section class="form-side">
+      <form class="form">
+        <input type="text" class="entrada" placeholder="Digite seu e-mail ou telefone">
+        <input type="password" class="entrada" name="" id="" placeholder="Digite sua senha">
+        <input type="button" value="Entrar" class="entrada pink">
+
+        <a href="">esqueceu a senha?</a>
+        <div class="line"></div>
+        <input id="create-account-button" type="button" placeholder="Criar nova conta" value="Criar nova conta" class="black-btn">
+      </form>
+      <p>Precisa de ajuda?<a href="#"> Clique aqui e fale com a nossa equipe.</a> </p>
+    </section>
+  </main>
+
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <div class="close-button">x</div>
+      <!-- Conteúdo do formulário para criar uma conta -->
+      <h2>Cadastre-se já</h2>
+      <p>É grátis e rápido.</p>
+      <hr>
+      <form>
+        <input type="text" placeholder="Nome de usuário">
+        <div class="flex-container">
+            <div class="flex-item">
+              <input type="text" placeholder="Nome">
+            </div>
+            <div class="flex-item">
+              <input type="text" placeholder="Sobrenome">
+            </div>
+        </div>
+        <input type="email" placeholder="E-mail">
+        <input type="password" placeholder="Senha">
+        <input type="password" placeholder="Confirme sua senha">
+        <label for="dob" class="with-placeholder">Data de Nascimento:</label>
+        <input type="date" id="dob" name="dob">
+        <label for="gender" class="with-placeholder">Selecione seu gênero</label>
+        <select id="gender" name="gender">
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+            <option value="outro">Outro</option>
+        </select>
+        <input type="submit" value="Registrar">
+      </form>
+        
+        
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-terms">
+      <a href="#">Termos de Serviço</a>
+      <a href="#">Política de Privacidade</a>
+      <a href="#">Ajuda</a>
+      <a href="#">Sobre</a>
+      <a href="#">Central de Privacidade</a>
+    </div>
+    <div class="footer-language">
+      <select id="language" name="language">
+        <option value="pt-BR">Português (BR)</option>
+        <option value="en-US">English (US)</option>
+        <!-- Adicione mais opções de idioma conforme necessário -->
+      </select>
+    </div>
+    <div class="footer-info">
+      <p>&copy; 2023 TravelConnect</p>
+    </div>
+  </footer>
+  
+
+  <script>
+ var createAccountButton = document.getElementById("create-account-button");
+var popup = document.getElementById("popup");
+
+createAccountButton.addEventListener("click", function() {
+    popup.style.display = "block";
+    popup.style.overflowY = "scroll"; // Ativa a barra de rolagem no pop-up
+    document.body.style.overflow = "hidden"; // Desativa a rolagem da página principal
+});
+
+var closeButton = document.querySelector(".close-button");
+
+closeButton.addEventListener("click", function() {
+    popup.style.display = "none";
+    popup.style.overflowY = "hidden"; // Desativa a barra de rolagem no pop-up
+    document.body.style.overflow = "auto"; // Ativa a rolagem da página principal
+});
+
+
+  </script>
+  
+</body>
+</html>
