@@ -178,7 +178,7 @@
     border: 1px solid #08fc5c;
   }
   
-  .popup-content input[type="submit"] {
+  .popup-content button[type="submit"] {
     background-color: #ea4f97;
     color: #fff;
     font-size: 18px; 
@@ -191,7 +191,7 @@
   }
   
   
-  .popup-content input[type="submit"]:hover {
+  .popup-content button[type="submit"]:hover {
     background-color: #e072a6;
   }
   .popup-content a {
