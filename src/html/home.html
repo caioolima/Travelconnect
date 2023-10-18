@@ -8,8 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
- 
-  <title>Document</title>
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js"></script>
+  <script>index.js</script>
+
+  <title>TravelConnect</title>
   
   <link rel="stylesheet" href="../css/resets.css">
   <link rel="stylesheet" href="../css/main.css">
@@ -30,7 +34,7 @@
       <form class="form">
         <input type="text" class="entrada" placeholder="Digite seu e-mail ou telefone">
         <input type="password" class="entrada" name="" id="" placeholder="Digite sua senha">
-        <input type="button" value="Entrar" class="entrada pink">
+        <button onclick="login()" type="button" class="entrada pink">Entrar</button>
 
         <a href="">esqueceu a senha?</a>
         <div class="line"></div>
@@ -58,8 +62,8 @@
             </div>
         </div>
         <input type="email" id="email" placeholder="E-mail">
-        <input type="password" id="senha" placeholder="Senha">
-        <input type="password" placeholder="Confirme sua senha">
+        <input type="password" id="password" placeholder="Senha">
+        <input type="password" id="confirm-password" placeholder="Confirme sua senha">
         <label for="dob" class="with-placeholder">Data de Nascimento:</label>
         <input type="date" id="dob" name="dob">
         <label for="gender" class="with-placeholder">Selecione seu gênero</label>
@@ -68,7 +72,7 @@
             <option value="feminino">Feminino</option>
             <option value="outro">Outro</option>
         </select>
-        <button onclick="Cadastrar()" type="submit">Registrar</button>
+        <button onclick="register()" type="submit">Registrar</button>
       </form>
         
         
@@ -115,29 +119,94 @@ closeButton.addEventListener("click", function() {
 
 
   </script>
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-analytics.js";
-    
+<script>
 
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyA9154ecE_KKU1-MO11sgmszNTtmzz4TQs",
-      authDomain: "travelconnect-9fd16.firebaseapp.com",
-      projectId: "travelconnect-9fd16",
-      storageBucket: "travelconnect-9fd16.appspot.com",
-      messagingSenderId: "986783962548",
-      appId: "1:986783962548:web:1b9af21c1c359ea43ccee1",
-      measurementId: "G-QFV36R2QQN"
-    };
 
-  </script>
-  
+const firebaseConfig = {
+    apiKey: "AIzaSyA57Y9GMVClVNOc5A9edzNLYFH4IWTbwik",
+    authDomain: "travelconnect-3b2b5.firebaseapp.com",
+    databaseURL: "https://travelconnect-3b2b5-default-rtdb.firebaseio.com",
+    projectId: "travelconnect-3b2b5",
+    storageBucket: "travelconnect-3b2b5.appspot.com",
+    messagingSenderId: "126884481130",
+    appId: "1:126884481130:web:e87a13033cb7f062a3e213"
+  };
 
+  var app = initializeApp(firebaseConfig);
+  const auth = getAuth();
+  const database = getDatabase();
+  // Set up our register function
+function register() {
+    // Get all our input fields
+    const user = document.getElementById('user').value;
+    const name = document.getElementById('name').value;
+    const surname = document.getElementById('surname').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+    const dob = document.getElementById('dob').value;
+    const gender = document.getElementById('gender').value;
+
+    // Validate input fields
+    if (!validate_email(email) || !validate_password(password)) {
+        alert('Email ou senha está incorreto.');
+        return; // Don't continue running code
+    }
+    if (validate_field(name) || validate_field(surname) || validate_field(confirmPassword)) {
+        alert('Um ou mais campos estão fora de linha');
+        return;
+    }
+    // Verifique se as senhas coincidem
+    if (password !== confirmPassword) {
+        alert('As senhas não coincidem');
+        return;
+    }
+
+    // Move on with Auth
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+
+            // Add this user to Firebase Database
+            const databaseRef = ref(database);
+
+            // Create User data
+            const user_data = {
+                email: email,
+                name: name,
+                surname: surname,
+                dob: dob,
+                gender: gender,
+                last_login: Date.now()
+            };
+
+            set(databaseRef.child('user/' + user.uid), user_data);
+
+            // Done
+            alert('Conta Criada.');
+        })
+        .catch((error) => {
+            // Firebase will use this to alert of its errors
+            const errorCode = error.code;
+            const errorMessage = error.message;
+
+            alert(errorCode + ': ' + errorMessage);
+        });
+}
+
+function validate_email(email) {
+    const expression = /^[^@]+@\w+(\.\w+)+\w$/;
+    return expression.test(email);
+}
+
+function validate_password(password) {
+    // Firebase only accepts lengths greater than or equal to 6
+    return password.length >= 6;
+}
+
+function validate_field(field) {
+    return field == null || field.length <= 0;
+}
+</script>
 </body>
 </html>
