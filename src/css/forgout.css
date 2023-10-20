@@ -1,159 +1,161 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
 }
 
 /* Estilo do logotipo */
-.logo{
-    font-size: 20px;
-    font-weight: bold;
-    margin-left: 16em ;
-    
-    margin-top: 30px;
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 16em;
+  margin-top: 30px;
 }
 
-.logo a{
-    text-decoration: none;
-    color: #000000;
+.logo a {
+  text-decoration: none;
+  color: #000000;
 }
 
 .a:visited {
-    color: #000000;
+  color: #000000;
 }
 
 /* Estilo da logo quando passa o mouse por cima (hover) */
 .logo:hover {
-    text-decoration: none;
-    color: #000000; 
+  text-decoration: none;
+  color: #000000;
 }
 
 
 hr {
-    border: none;
-    border-top: 1px solid #ccc;
-    margin: 20px 0;
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
 }
 
 .container {
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 70px;
-    position: relative;
-    border: 1px solid #d5d5d5; 
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 70px;
+  position: relative;
+  border: 1px solid #d5d5d5;
 }
 
 /* Título do formulário */
 .title {
-    font-size: 20px;
-    color: #0f0f0f;
-    text-align: center;
-    margin-bottom: 40px;
+  font-size: 20px;
+  color: #0f0f0f;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 /* Descrição do formulário */
 .description {
-    font-size: 16px;
-    color: #666;
-    margin-top: 20px;
+  font-size: 16px;
+  color: #666;
+  margin-top: 20px;
 }
 
 /* Formulário */
 form {
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 9px;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 9px;
 }
 
 /* Estilo para o campo de e-mail */
 .email-input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #828181;
-    border-radius: 5px;
-    outline: none;
-    margin-bottom: 30px;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #828181;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 30px;
 }
 
 /* Estilo para o botão de envio */
 #submit-button {
-    background-color: #07c449;
-    padding: 10px;
-    color: #fff;
-    font-size: 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: #07c449;
+  padding: 10px;
+  color: #fff;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 /* Estilo do botão de envio no hover */
 #submit-button:hover {
-    background-color: #04f759;
+  background-color: #04f759;
 }
 
 /* Estilos para dispositivos móveis */
 @media screen and (max-width: 768px) {
-    .logo {
-        font-size: 20px;
-        color: #000000;
-        font-weight: bold;
-        margin-left: 6em ;
-    }
-    .container {
-        padding: 8px;
-        max-width: 90%;
-        border-radius: 0;
-    }
+  .logo {
+    font-size: 20px;
+    color: #000000;
+    font-weight: bold;
+    margin-left: 6em;
+  }
 
-    .email-input {
-        width: 100%;
-        margin: 10px 0;
-    }
-    #submit-button {
-      margin-top: 20px;
+  .container {
+    padding: 8px;
+    max-width: 90%;
+    border-radius: 0;
+  }
+
+  .email-input {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  #submit-button {
+    margin-top: 20px;
   }
 }
 
 
 .footer {
-    text-align: center;
-    padding: 20px 0;
-    font-family: 'Raleway', sans-serif;
-    margin-top: 100px;
-  }
-.footer-terms {
-    font-size: 13px;
-    margin-bottom: 20px;
+  text-align: center;
+  padding: 20px 0;
+  font-family: 'Raleway', sans-serif;
+  margin-top: 100px;
+}
 
-  }
-  
+.footer-terms {
+  font-size: 13px;
+  margin-bottom: 20px;
+
+}
+
 .footer-terms a {
-    text-decoration: none;
-    margin: 0 20px;
-    color: #0f0f0f;
-  }
-  
-  .footer-terms a:hover {
-    text-decoration: underline;
-  }
-  
-  .footer-language {
-    font-size: 13px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .footer-info {
-    font-size: 13px;
-    margin-top: 10px;
-  }
-  
-  
+  text-decoration: none;
+  margin: 0 20px;
+  color: #0f0f0f;
+}
+
+.footer-terms a:hover {
+  text-decoration: underline;
+}
+
+.footer-language {
+  font-size: 13px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.footer-info {
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+
 /* Estilos para a versão mobile */
 @media screen and (max-width: 768px) {
   .footer {
@@ -170,11 +172,11 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px 0; 
+    margin: 10px 0;
   }
-  
+
   .footer .footer-info a {
-    margin: 2px 0; 
-    padding: 0 10px; 
+    margin: 2px 0;
+    padding: 0 10px;
   }
 }

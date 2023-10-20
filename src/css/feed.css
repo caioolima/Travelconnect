@@ -1,0 +1,146 @@
+/* Estilos gerais */
+body {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000000;
+    margin-bottom: 3em;
+    margin-left: 2em;
+    margin-top: 2em;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.a:visited {
+    color: #000000;
+}
+
+.menu-container {
+    position: fixed;
+    left: 0;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    list-style: none;
+    z-index: 1;
+    height: 100%;
+    width: 18%;
+}
+
+.user-avatar {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 1.3em;
+}
+
+.user-options a {
+    color: #000000;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.user-options a i {
+    margin-right: 1em;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.user-options li {
+    margin: 5px 0;
+    margin-bottom: 2em;
+    list-style: none;
+}
+
+/* Estilize as opções quando passar o mouse */
+.user-options a:hover {
+    color: #08fc5c;
+    font-weight: bold;
+}
+
+.user-options a:active {
+    font-weight: bold;
+}
+
+
+
+/* Estilos para a versão móvel - mostrar apenas ícones na parte inferior */
+@media (max-width: 768px) {
+    body {
+        font-family: 'Raleway', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* Para manter o rodapé na parte inferior */
+    }
+    
+    header {
+        color: #000000;
+        display: flex;
+        flex-direction: column; /* Alterado para column para empilhar o menu verticalmente */
+        padding: 5px;
+    }
+    
+    .logo {
+        margin: 1em 0;
+        font-size: 20px;
+        margin-left: 20px;
+    }
+    
+    .menu-container {
+        display: flex;
+        flex-direction: column; /* Alterado para column para empilhar os itens verticalmente */
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        background-color: #ffffff; /* Adicione um fundo branco para o menu */
+        z-index: 1; /* Adicione um índice z para sobrepor outros elementos */
+        bottom: 0; /* Posiciona o menu na parte inferior da tela */
+        height: 10%; /* Ajuste a altura conforme necessário */
+    }
+    
+    
+    .user-options {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .user-options li {
+        margin-top: 10px;
+        font-size: 0px;
+    }
+
+    .user-options li:nth-child(1), /* Pesquisar */
+    .user-options li:nth-child(3), /* Pesquisar */
+    .user-options li:nth-child(2) /* Ver Perfil */
+    {
+        display: block;
+    }
+
+    .user-options li:nth-child(4), /* Página Inicial */
+    .user-options li:nth-child(5), /* Mensagens */
+    .user-options li:nth-child(6), /* Publicar */
+    .user-options li:nth-child(7) /* Notificações */
+    {
+        display: none;
+    }
+
+    .user-options a {
+        color: #000000;
+        text-decoration: none;
+    }
+}
